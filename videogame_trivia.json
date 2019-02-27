@@ -1,0 +1,416 @@
+{
+  "QandAs": [
+    {
+      "q": "'Sam & Max Hit the Road' was developed by LucasArts in which year?",
+      "a": ["1993"]
+    },
+    {
+      "q": "'FIFA' soccer series developed by EA Sports/Electronic Arts had many titles shipped. How many of these versions were supported by the DOS platform?",
+      "a": ["3"]
+    },
+    {
+      "q": "In 1993, Virgin Interactive Entertainment published the first PC game coming on two CDS in the PC gaming history. Which game am I talking about?",
+      "a": ["The 7th Guest"]
+    },
+    {
+      "q": "Which year the first 'Ultima' series edition was shipped by Origin?",
+      "a": ["1981"]
+    },
+    {
+      "q": "Who was the Lead Designer for the game 'The Sims' developed by Maxis?",
+      "a": ["Will Wright"]
+    },
+    {
+      "q": "'Wolfenstein 3-D' (1992) and 'Doom' were developed by the same company. What's this company name?",
+      "a": ["id Software"]
+    },
+    {
+      "q": "In the early 90's, a game called 'Civilization', programmed and developed by Sid Meier and published by Microsoft, was a great success. When it was developed?",
+      "a": ["1991"]
+    },
+    {
+      "q": "'Unreal Tournament 2003' was published by two companies. These companies are...",
+      "a": ["Atari and Infogrames"]
+    },
+    {
+      "q": "If I say the name 'Gordon Freeman' and 'Black Mesa research facility' which FPS game comes to your mind?",
+      "a": ["Half-Life", "Half Life"]
+    },
+    {
+      "q": "The main character for the 'Tomb Raider' series is...",
+      "a": ["Lara Croft"]
+    },
+    {
+      "q": "This card game has been found on Windows operating systems since the Windows 3.0. What is its name?",
+      "a": ["Solitaire"]
+    },
+    {
+      "q": "This virtual table tennis game has been around since 1972. What is the name of this popular Atari game which sparked the arcade era?",
+      "a": ["Pong"]
+    },
+    {
+      "q": "What colour was the original Pac-Man?",
+      "a": ["Yellow"]
+    },
+    {
+      "q": "In what game does Jumpman need to save Pauline from her captor?",
+      "a": ["Donkey Kong"]
+    },
+    {
+      "q": "Who was the final boss of 'Super Mario Bros.' (NES)?",
+      "a": ["Bowser"]
+    },
+    {
+      "q": "In 'Tetris', how many separate blocks are in each falling block (or tetrad)?",
+      "a": ["4"]
+    },
+    {
+      "q": "In the games of this series, players could 'catch 'em all' to become the master of certain powerful creatures. What gaming series spurred numerous sequels, hundreds of species, and millions of trainers worldwide?",
+      "a": ["Pokemon", "Pokémon"]
+    },
+    {
+      "q": "Fifteen million people, in total, have subscribed to this PC game. In which constantly expanding game can players be a member of the Alliance or the Horde to fight for their faction?",
+      "a": ["World of Warcraft"]
+    },
+    {
+      "q": "How many fret buttons are on a single Guitar Hero guitar?",
+      "a": ["5"]
+    },
+    {
+      "q": "In 1996, what PC game by Blizzard involved a protagonist setting out to kill the devil in a dark world of dungeons and hellfire?",
+      "a": ["Diablo"]
+    },
+    {
+      "q": "Released in 2008, what EA Games PC title allowed players to guide a monster from the primordial soup to the space age in a single game?",
+      "a": ["Spore"]
+    },
+    {
+      "q": "Nintendo's 'Animal Crossing' released a Wii iteration in late 2008. What was this game subtitled?",
+      "a": ["City Folk"]
+    },
+    {
+      "q": "Which game was sold with the expansion pack, 'Loopy Landscapes'?",
+      "a": ["Rollercoaster Tycoon"]
+    },
+    {
+      "q": "Which 'Pokemon' game was one of the first in the series to be released on the DS?",
+      "a": ["Pokemon Diamond", "Diamond"]
+    },
+    {
+      "q": "In the 'Bloodmoon' expansion of 'Elder Scrolls III: Morrowind', to where are players able to travel?",
+      "a": ["Solstheim"]
+    },
+    {
+      "q": "Most people know that Nintendo began as a playing card company. What is the name of the card game they created?",
+      "a": ["Hanafuda"]
+    },
+    {
+      "q": "It's all about collecting in some games. What game, released in late 2008, forced the player to collect Light Seeds?",
+      "a": ["Prince of Persia"]
+    },
+    {
+      "q": "Ben Schultz became well known after creating which famous video game character?",
+      "a": ["Leeroy Jenkins"]
+    },
+    {
+      "q": "The Aperture Science Enrichment Center is found in which game?",
+      "a": ["Portal"]
+    },
+    {
+      "q": "How many players are on one team of Blitzball in 'Final Fantasy X'?",
+      "a": ["6"]
+    },
+    {
+      "q": "Which video game series, also the name of a major law in most of the world, has been set in Liberty City?",
+      "a": ["Grand Theft Auto"]
+    },
+    {
+      "q": "Which video game ends when you retrieve the Super Happy Tree?",
+      "a": ["Yoshi's Story", "Yoshis Story"]
+    },
+    {
+      "q": "You know you're succeeding when you're rewarded, right? In what Xbox 360 game can you receive the 'Traditional' achievement?",
+      "a": ["Castle Crashers"]
+    },
+    {
+      "q": "Success! You've won on the slots at the Game Corner in a 'Pokemon' video game! What does this mean you can do?",
+      "a": ["Purchase a Pokemon", "Buy a Pokemon"]
+    },
+    {
+      "q": "Success comes in the form of stars in 'Rock Band' and 'Dance Central', but what colour star is better than the rest?",
+      "a": ["Gold"]
+    },
+    {
+      "q": "In some video games, success is measured by how high your score can be. In which 'Wii Sports' game is the lowest score the winner?",
+      "a": ["Golf"]
+    },
+    {
+      "q": "According to Nintendo, what does the 'SP' stand for in the Game Boy Advance SP?",
+      "a": ["Special"]
+    },
+    {
+      "q": "In this 'Mario' game, Yoshi is only found on the roof of Princess Peach's Castle. It's also the first game in the 'Mario' series to replace the name Princess Toadstool with 'Peach'. What game is it?",
+      "a": ["Super Mario 64"]
+    },
+    {
+      "q": "Which company created the popular PC game 'Diablo II' and its expansion pack 'Lord of Destruction'?",
+      "a": ["Blizzard Entertainment", "Blizzard"]
+    },
+    {
+      "q": "What was the name of the second 'Legend of Zelda' title on the NES?",
+      "a": ["The Adventure of Link", "Zelda II: The Adventure of Link", "Adventure of Link", "Adventures of Link"]
+    },
+    {
+      "q": "In 1998, Blizzard released what game on the PC featuring Terran, Zerg, and Protoss forces?",
+      "a": ["StarCraft", "Star Craft"]
+    },
+    {
+      "q": "In December 2001, this game starring Captain Olimar was released on the Gamecube. What is its name?",
+      "a": ["Pikmin"]
+    },
+    {
+      "q": "What 2006 Rockstar Games title takes place in a preparatory school?",
+      "a": ["Bully"]
+    },
+    {
+      "q": "This quirky puzzle game was released as a part of 'Half-Life 2's Orange Box' set. It's known for GLaDOs and a particular gun. What is its name?",
+      "a": ["Portal"]
+    },
+    {
+      "q": "This game takes place in a fictional New York City in which a virus is turning people into horrible creatures. You play Alex, a man who can use powers to transform himself, in which 2009 game?",
+      "a": ["Prototype"]
+    },
+    {
+      "q": "This PS3 exclusive starred Cole MacGrath. When an explosion devastates Empire City, he's left standing with new, unexplainable powers. What game is it?",
+      "a": ["Infamous"]
+    },
+    {
+      "q": "Set in the underwater city of Rapture, what 2007 video game pulled many of its elements from Ayn Rand's 'The Fountainhead'?",
+      "a": ["BioShock"]
+    },
+    {
+      "q": "What 2010 video game developed by Platinum Games stars a female protagonist who is actually a witch? (Hint: The game is set in Vigrid.)",
+      "a": ["Bayonetta"]
+    },
+    {
+      "q": "You're a Vault Hunter on the planet Pandora. Your name is Roland the Soldier, Mordecai the Hunter, Lilith the Siren or Brick the Berserker. What game are you from?",
+      "a": ["Borderlands"]
+    },
+    {
+      "q": "You're Jack Carver and you can freely roam a mysterious archipelago. But your opponent Dr. Krieger has set up facilities for genetic engineering on this archipelago. What game are you from?",
+      "a": ["Far Cry"]
+    },
+	{
+		"q": "The main protagonist of this game consists of: a racoon, turtle and a hippo, what game is this?",
+		"a": ["Sly", "Sly Cooper", "Sly Cooper and the Thievius Raccoonus"]
+	},
+	{
+		"q": "What is the name of the map from Call of Duty Modern Warfare 2 and 3 that was set at in airport?",
+		"a": ["Terminal"]
+	},
+	{
+		"q": "What game is set in a post-apocalyptic world, where you are living inside an underground Vault?",
+		"a": ["Fallout"]
+	},
+	{
+		"q": "In the game Kingdom Hearts 2, what member of the organization uses cards to fight?",
+		"a": ["Luxord"]
+	},
+	{
+		"q": "In the game called Slenderman, what are the 8 things you need to find?",
+		"a": ["Pages"]
+	},
+	{
+		"q": "From the show DragonBall Z, who is Frieza's older brother?",
+		"a": ["Cooler"]
+	},
+	{
+		"q": "In Minecraft what is the name of the main character?",
+		"a": ["Steve"]
+	},
+	{
+		"q": "What is the name of a game with a fire breathing purple dragon?",
+		"a": ["Spyro"]
+	},
+	{
+		"q": "Who is the main character of Halo?",
+		"a": ["Master Chief"]
+	},
+	{
+		"q": "What is Jakes favourite colour?",
+		"a": ["Blue", "Light Blue"]
+	},
+	{
+		"q": "What game is Agent 47 from?",
+		"a": ["Hitman"]
+	},
+	{
+		"q": "Kratos is the main character of what game",
+		"a": ["God of war"]
+	},
+	{
+		"q": "The pokemon pidgey is half flying half..?",
+		"a": ["Normal"]
+	},
+	{
+		"q": "What Nintendo game lets you play, train, and feed your dogs?",
+		"a": ["Nintendogs"]
+	},
+	{
+		"q": "What does NES stand for?",
+		"a": ["Nintendo Entertainment system"]
+	},
+	{
+		"q": "In what year did the first Microsoft Xbox come out?",
+		"a": ["2001"]
+	},
+	{
+		"q": "What was the last game console developed by Atari?",
+		"a": ["Jaguar"]
+	},
+	{
+		"q": "In what year was the Nintendo 64 officially released?",
+		"a": ["1996"]
+	},
+	{
+		"q": "Games on the first Sony Playstation came which format: Cartridges, CDs, DVD, or Memory card?",
+		"a": ["CD"]
+	},
+	{
+		"q": "What does E3 stand for?",
+		"a": ["Electronic Entertainment Expo"]
+	},
+	{
+		"q": "Which video game company developed but didn't release a controller that looked like and was called a 'boomerang'?",
+		"a": ["Sony"]
+	},
+	{
+		"q": "What was the first video arcade game ever commercially produced?",
+		"a": ["Computer Space"]
+	},
+	{
+		"q": "What name did 'Mario', from 'Super Mario Brothers', originally have?",
+		"a": ["Ossan"]
+	},
+	{
+		"q": "In the Super Mario Bros. Series, what is Yoshi's scientific name?",
+		"a": ["T. Yoshisaur Munchakoopas"]
+	},
+	{
+		"q": "What was the nickname of the original model for Half-Life's protagonist Gordon Freeman?",
+		"a": ["Ivan the Space Biker"]
+	},
+	{
+		"q": "In 'Undertale', how many main endings are there?",
+		"a": ["3"]
+	},
+	{
+		"q": "What was the first video game in the Batman 'Arkham' series?",
+		"a": ["Arkham Asylum"]
+	},
+	{
+		"q": "In Portal 2, the iconic character GLaDOS is turned into:",
+		"a": ["A potato", "potato"]
+	},
+	{
+		"q": "What Nationality is D.Va from Overwatch?",
+		"a": ["Korean"]
+	},
+	{
+		"q": "What is the name of the location-based augmented reality game developed by Niantic before Pokemon GO?",
+		"a": ["Ingress"]
+	},
+	{
+		"q": "How many classes are there in Team Fortress 2?",
+		"a": ["9"]
+	},
+	{
+		"q": "What is the main theme song of 'Sonic Adventure 2'?",
+		"a": ["Live and Learn"]
+	},
+	{
+		"q": "In Left 4 Dead, what is the name of the virus, as designated by CEDA, that causes most humans to turn into the Infected?",
+		"a": ["Green Flu"]
+	},
+	{
+		"q": "What was Frank West's job in 'Dead Rising'?",
+		"a": ["Photojournalist", "Photo journalist"]
+	},
+	{
+		"q": "In the videogame Bully, what is the protagonist's last name?",
+		"a": ["Hopkins"]
+	},
+	{
+		"q": "Mirror's Edge Catalyst takes place in the City of...?",
+		"a": ["Glass"]
+	},
+	{
+		"q": "Which company did Bethesda purchase the Fallout Series from?",
+		"a": ["Interplay Entertainment"]
+	},
+	{
+		"q": "How many times do you fight the Imprisoned in The Legend of Zelda: Skyward Sword?",
+		"a": ["3"]
+	},
+	{
+		"q": "How many flagship monsters appear in Monster Hunter Gernerations?",
+		"a": ["4"]
+	},
+	{
+		"q": "What was the first game ever released that ran on the Source engine?",
+		"a": ["Counter-Strike: Source", "Counter Strike Source", "Counter Strike: Source"]
+	},
+	{
+		"q": "Which water-type Pokémon starter was introduced in the 4th generation of the series?",
+		"a": ["Piplup"]
+	},
+	{
+		"q": "Which Elite Four member from the first generation of Pokemon became the champion in the next generation?",
+		"a": ["Lance"]
+	},
+	{
+		"q": "What is the name of the largest planet in Kerbal Space Program?",
+		"a": ["Jool"]
+	},
+	{
+		"q": "What is the item required to summon the boss Duke Fishron in the game Terraria?",
+		"a": ["Truffle Worm"]
+	},
+	{
+		"q": "What minimum level in the Defence skill is needed to equip Dragon Armour in the MMO RuneScape?",
+		"a": ["60"]
+	},
+	{
+		"q": "What year was Super Mario Bros. released?",
+		"a": ["1985"]
+	},
+	{
+		"q": "In 'Overwatch', which hero is able to wallride?",
+		"a": ["Lucio"]
+	},
+	{
+		"q": "What is the perk that was introduced in the 'Call Of Duty: Zombies' map, 'Mob Of The Dead'?",
+		"a": ["Electric Cherry"]
+	},
+	{
+		"q": "In the 'Call Of Duty: Zombies' map 'Origins', where is 'Stamin-Up' located?",
+		"a": ["Generator 5"]
+	},
+	{
+		"q": "Who developed the 2016 farming RPG 'Stardew Valley'?",
+		"a": ["Eric Barone"]
+	},
+	{
+		"q": "What is the name of Joel's daughter in the game, 'The Last of Us'?",
+		"a": ["Sarah"]
+	},
+	{
+		"q": "In Portal, what colour is the Intelligence Core?",
+		"a": ["Blue"]
+	},
+	{
+		"q": "Lanky, Funky, and Chunky are all characters featured in which series owned by Nintendo?",
+		"a": ["Donkey Kong"]
+	}
+  ]
+}

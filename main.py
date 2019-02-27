@@ -34,21 +34,21 @@ logger.addHandler(fh)
 logger.addHandler(ch)
 
 async def add_points(channel, user, amount):
-	with open('./channels.json') as channels_file:
-		content = json.load(channels_file)
-		token = content[channel]['token']
-		channel = content[channel]['id']
+    with open('./channels.json') as channels_file:
+        content = json.load(channels_file)
+        token = content[channel]['token']
+        channel = content[channel]['id']
 
-	async def fetch(session, url):
-		async with session.put(url,headers = {"Authorization":token}) as response:
-			return await response.json()
+    async def fetch(session, url):
+        async with session.put(url,headers = {"Authorization":token}) as response:
+            return await response.json()
 
-	async def main():
-		async with aiohttp.ClientSession() as session:
-			r = await fetch(session, f'https://api.streamelements.com/kappa/v2/points/{channel}/{user}/{amount}')
-			logger.info(r)
+    async def main():
+        async with aiohttp.ClientSession() as session:
+            r = await fetch(session, f'https://api.streamelements.com/kappa/v2/points/{channel}/{user}/{amount}')
+            logger.info(r)
 
-	await main()
+    await main()
 
 class Trivia:
     def __init__(self, question, answer):
@@ -73,6 +73,7 @@ class Botto(commands.Bot):
         trivia.answered = True
         channel = self.get_channel('thebigoce')
         await channel.send(f'You took too long! The correct answer was {trivia.answer[0]}. Other accepted answers: {", ".join(trivia.answer[1:])}')
+        del self
 
     async def post_trivia(self):
         global trivia

@@ -115,6 +115,16 @@ class Botto(commands.Bot):
             self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=int(amount))
             await message.channel.send(f'Success! Trivia timer interval is now set to {amount} minutes')
 
+    @commands.command(aliases=['triviaon'])
+    async def triviaon_command(self, message):
+        if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
+            self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=5)
+
+    @commands.command(aliases=['triviaoff'])
+    async def triviaoff_command(self, message):
+        if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
+            self.triviajob.remove()
+
     async def event_error(self, error, data):
         logger.error(f"{error} - {ctx.channel.name}")
 

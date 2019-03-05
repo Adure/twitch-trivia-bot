@@ -65,26 +65,27 @@ class Trivia:
 
 class Botto(commands.Bot):
     def __init__(self):
+        self.triviajob = None
+        self.trivia = None
         super().__init__(prefix=['!', '?'], irc_token=token, api_token=api_token, client_id=channel_id, nick='adure_bot', initial_channels=["thebigoce"])
 
     async def end_trivia(self):
-        if trivia.answered == True:
+        if self.trivia.answered == True:
             return
-        trivia.answered = True
+        self.trivia.answered = True
         channel = self.get_channel('thebigoce')
-        await channel.send(f'You took too long! The correct answer was {trivia.answer[0]}. Other accepted answers: {", ".join(trivia.answer[1:])}')
+        await channel.send(f'/me You took too long! The correct answer was {self.trivia.answer[0]}. Other accepted answers: {", ".join(self.trivia.answer[1:])}')
         del self
 
     async def post_trivia(self):
-        global trivia
         with open('videogame_trivia.json', 'r') as tquestions:
             content = json.load(tquestions)
             question = random.choice(content['QandAs'])
 
-        trivia = Trivia(question['q'], question['a'])
+        self.trivia = Trivia(question['q'], question['a'])
         channel = self.get_channel('thebigoce')
-        await channel.send(trivia.question)
-        print(trivia.question, trivia.answer)
+        await channel.send('/me '+self.trivia.question)
+        print(self.trivia.question, self.trivia.answer)
 
         now = datetime.datetime.now()
         run_at = now + datetime.timedelta(seconds=30)
@@ -93,18 +94,26 @@ class Botto(commands.Bot):
     async def event_ready(self):
         logger.info("Ready!")
         await self.post_trivia()
-        sched.add_job(self.post_trivia, 'interval', minutes=5)
+        self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=5)
 
     async def event_message(self, message):
         print(f"{message.author.name}: {message.content}")
+        await self.handle_commands(message)
 
-        if trivia.answered == True:
+        if self.trivia.answered == True:
             return
 
-        correct = trivia.check_answer(message.content)
+        correct = self.trivia.check_answer(message.content)
         if correct == True:
-            await message.channel.send(f'Correct, {message.author.name}! You won 500 Coins!')
+            await message.channel.send(f'/me Correct, {message.author.name}! You won 500 Coins!')
             await add_points(message.channel.name, message.author.name, '500')
+
+    @commands.command(aliases=['triviatimer'])
+    async def triviatimer_command(self, message, amount):
+        if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
+            self.triviajob.remove()
+            self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=int(amount))
+            await message.channel.send(f'Success! Trivia timer interval is now set to {amount} minutes')
 
     async def event_error(self, error, data):
         logger.error(f"{error} - {ctx.channel.name}")

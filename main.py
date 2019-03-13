@@ -1,9 +1,9 @@
 from auth import jwt_token, access_token, token, api_token, client_id
+from twitchio.ext import commands
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 sched = AsyncIOScheduler()
 sched.start()
-from twitchio.ext import commands
-import datetime
 import threading
 import requests
 import asyncio
@@ -13,6 +13,13 @@ import random
 import json
 import re
 
+import datetime as _datetime
+from datetime import datetime
+from datetime import timedelta
+from dateutil.relativedelta import relativedelta
+import locale
+locale.setlocale(locale.LC_ALL, 'en_AU')
+
 r = requests.get('https://api.twitch.tv/kraken/channel', headers =
 {
     'Content-Type': 'application/vnd.twitchtv.v5+json',
@@ -20,6 +27,10 @@ r = requests.get('https://api.twitch.tv/kraken/channel', headers =
     'Authorization':access_token
 })
 channel_id = r.json()['_id']
+
+with open('./channels.json', 'r+') as channels_file:
+	channels = json.load(channels_file)
+	channels = channels['channels']
 
 logger = logging.getLogger('main')
 logger.setLevel(logging.DEBUG)
@@ -32,6 +43,19 @@ fh.setFormatter(formatter)
 ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
+
+async def parse_datetime(dt):
+    compiled = re.compile("""(?:(?P<hours>[0-9]{1,5})(?:hours?|h))?
+                             (?:(?P<minutes>[0-9]{1,5})(?:minutes?|m))?
+                             (?:(?P<seconds>[0-9]{1,5})(?:seconds?|s))?
+                          """, re.VERBOSE)
+
+    match = compiled.fullmatch(dt)
+    if match is None or not match.group(0):
+        return None
+
+    data = { k: int(v) for k, v in match.groupdict(default=0).items() }
+    return data
 
 async def add_points(channel, user, amount):
     with open('./channels.json') as channels_file:
@@ -67,34 +91,32 @@ class Botto(commands.Bot):
     def __init__(self):
         self.triviajob = None
         self.trivia = None
-        super().__init__(prefix=['!', '?'], irc_token=token, api_token=api_token, client_id=channel_id, nick='adure_bot', initial_channels=["thebigoce"])
+        super().__init__(prefix=['!', '?'], irc_token=token, api_token=api_token, client_id=channel_id, nick='adure_bot', initial_channels=channels)
 
-    async def end_trivia(self):
+    async def end_trivia(self, message):
         if self.trivia.answered == True:
             return
         self.trivia.answered = True
-        channel = self.get_channel('thebigoce')
+        channel = message.channel
         await channel.send(f'/me You took too long! The correct answer was {self.trivia.answer[0]}. Other accepted answers: {", ".join(self.trivia.answer[1:])}')
-        del self
 
-    async def post_trivia(self):
+    async def post_trivia(self, message):
         with open('videogame_trivia.json', 'r') as tquestions:
             content = json.load(tquestions)
             question = random.choice(content['QandAs'])
 
         self.trivia = Trivia(question['q'], question['a'])
-        channel = self.get_channel('thebigoce')
+        channel = message.channel
         await channel.send('/me '+self.trivia.question)
         print(self.trivia.question, self.trivia.answer)
 
-        now = datetime.datetime.now()
-        run_at = now + datetime.timedelta(seconds=30)
-        sched.add_job(self.end_trivia, 'date', run_date=run_at)
+        now = datetime.now()
+        run_at = now + timedelta(seconds=30)
+        end = self.end_trivia
+        sched.add_job(end, 'date', [message], run_date=run_at)
 
     async def event_ready(self):
         logger.info("Ready!")
-        await self.post_trivia()
-        self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=5)
 
     async def event_message(self, message):
         print(f"{message.author.name}: {message.content}")
@@ -111,19 +133,29 @@ class Botto(commands.Bot):
     @commands.command(aliases=['triviatimer'])
     async def triviatimer_command(self, message, amount):
         if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
-            self.triviajob.remove()
-            self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=int(amount))
-            await message.channel.send(f'Success! Trivia timer interval is now set to {amount} minutes')
+            dt = await parse_datetime(amount)
+            if dt == None:
+                print('error resolving interval time')
+                await ctx.send('error resolving interval time')
+                return
+
+            self.triviajob = sched.add_job(lambda: self.post_trivia(message), 'interval', seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], replace_existing=True)
+            now = datetime.now(_datetime.timezone(-timedelta(hours=11)))
+            dt = now + relativedelta(**dt)
+            await message.channel.send(f"Success! Trivia will run next at {dt.strftime('%X %Z')}")
 
     @commands.command(aliases=['triviaon'])
     async def triviaon_command(self, message):
         if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
-            self.triviajob = sched.add_job(self.post_trivia, 'interval', minutes=5)
+            await message.channel.send("Trivia on!")
+            await self.post_trivia(message)
+            self.triviajob = sched.add_job(lambda: self.post_trivia(message), 'interval', minutes=5, replace_existing=True)
 
     @commands.command(aliases=['triviaoff'])
     async def triviaoff_command(self, message):
         if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
             self.triviajob.remove()
+            await message.channel.send("Trivia off!")
 
     async def event_error(self, error, data):
         logger.error(f"{error} - {ctx.channel.name}")

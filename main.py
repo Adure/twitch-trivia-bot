@@ -139,8 +139,9 @@ class Botto(commands.Bot):
                 await ctx.send('error resolving interval time')
                 return
 
-            self.triviajob = sched.add_job(lambda: self.post_trivia(message), 'interval', seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], replace_existing=True)
-            now = datetime.now(_datetime.timezone(-timedelta(hours=11)))
+            post = self.post_trivia
+            self.triviajob = sched.add_job(post, 'interval', [message], seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], replace_existing=True)
+            now = datetime.now(_datetime.timezone(timedelta(hours=11)))
             dt = now + relativedelta(**dt)
             await message.channel.send(f"Success! Trivia will run next at {dt.strftime('%X %Z')}")
 

@@ -86,7 +86,7 @@
     },
     {
       "q": "Which game was sold with the expansion pack, 'Loopy Landscapes'?",
-      "a": ["Rollercoaster Tycoon"]
+      "a": ["Rollercoaster Tycoon", "Roller Coaster Tycoon"]
     },
     {
       "q": "Which 'Pokemon' game was one of the first in the series to be released on the DS?",
@@ -302,7 +302,7 @@
     },
     {
         "q": "What Nationality is D.Va from Overwatch?",
-        "a": ["Korean"]
+        "a": ["Korean", "South Korean"]
     },
     {
         "q": "What is the name of the location-based augmented reality game developed by Niantic before Pokemon GO?",

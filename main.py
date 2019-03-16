@@ -44,6 +44,8 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
+coinreward = '500'
+
 async def parse_datetime(dt):
     compiled = re.compile("""(?:(?P<hours>[0-9]{1,5})(?:hours?|h))?
                              (?:(?P<minutes>[0-9]{1,5})(?:minutes?|m))?
@@ -127,8 +129,49 @@ class Botto(commands.Bot):
 
         correct = self.trivia.check_answer(message.content)
         if correct == True:
-            await message.channel.send(f'/me Correct, {message.author.name}! You won 500 Coins!')
-            await add_points(message.channel.name, message.author.name, '500')
+            await message.channel.send(f'/me Correct, {message.author.name}! You won {coinreward} Coins!')
+            await add_points(message.channel.name, message.author.name, coinreward)
+
+            channel = message.channel.name
+            username = message.author.name
+            coinswon = coinreward
+
+            with open('trivia_leaderboard.json', 'r+') as leaderboard_file:
+                try:
+                    contents = json.load(leaderboard_file)
+
+                    # add user entry to leaderboard if it does not exist already
+                    if not any(u['userName'] == username for u in contents['users']):
+                        out = {
+                            'userName': username,
+                            'correctAnswers': 1,
+                            'coinsWon': int(coinswon)
+                        }
+                        contents['users'].append(out)
+
+                        leaderboard_file.seek(0)
+                        json.dump(contents, leaderboard_file, indent=4, sort_keys=True)
+                        leaderboard_file.truncate()
+
+                        logger.info(f'Added {username} to leaderboard')
+                        return
+
+                    # update user entry
+                    for entry in contents['users']:
+                        if entry['userName'] == username:
+                            entry['correctAnswers'] += 1
+                            entry['coinsWon'] += int(coinswon)
+
+                            leaderboard_file.seek(0)
+                            json.dump(contents, leaderboard_file, indent=4, sort_keys=True)
+                            leaderboard_file.truncate()
+
+                            logger.info(f"Updated {username} in leaderboard with a total of {entry['correctAnswers']} correct answers")
+
+                except json.decoder.JSONDecodeError:
+                    logger.error('Error reading trivia leaderboard. Initialising file...')
+                    out = {'users': []}
+                    json.dump(out, leaderboard_file, indent=4, sort_keys=True, separators=(',', ': '))
 
     @commands.command(aliases=['triviatimer'])
     async def triviatimer_command(self, message, amount):
@@ -140,6 +183,7 @@ class Botto(commands.Bot):
                 return
 
             post = self.post_trivia
+            self.triviajob.remove()
             self.triviajob = sched.add_job(post, 'interval', [message], seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], replace_existing=True)
             now = datetime.now(_datetime.timezone(timedelta(hours=11)))
             dt = now + relativedelta(**dt)

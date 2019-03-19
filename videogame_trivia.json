@@ -399,6 +399,43 @@
     {
         "q": "Lanky, Funky, and Chunky are all characters featured in which series owned by Nintendo?",
         "a": ["Donkey Kong"]
+    },
+    {
+    	"q": "What does “Atari” mean?",
+    	"a": ["Success"]
+    },
+    {
+    	"q": "What does Mario jump on after completing a level?",
+    	"a": ["Flag Pole"]
+    },
+    {
+    	"q": "Which year the Minecraft was released?",
+    	"a": ["2009"]
+    },
+    {
+    	"q": "Homefront was a war game against which country?",
+    	"a": ["North Korea"]
+    },
+    {
+    	"q": "The Character Master Hands is in which game?",
+    	"a": ["Smash Brothers", "Super Smash Brothers", "SSB"]
+    },
+    {
+    	"q": "Which PC game was delayed in the release because of a hidden picture of a developer’s ass?",
+    	"a": ["Halo 2"]
+    },
+
+    {
+    	"q": "Which year was the PS4 released?",
+    	"a": ["2013"]
+    },
+    {
+    	"q": "In which year was Grand Theft Auto V released?",
+    	"a": ["2013"]
+    },
+    {
+    	"q": "Which year was Fallout 3 released?",
+    	"a": ["2008"]
     }
   ]
 }

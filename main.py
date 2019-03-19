@@ -18,7 +18,7 @@ from datetime import datetime
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 import locale
-locale.setlocale(locale.LC_ALL, 'en_AU')
+locale.setlocale(locale.LC_ALL, 'en_AU.UTF8')
 
 r = requests.get('https://api.twitch.tv/kraken/channel', headers =
 {

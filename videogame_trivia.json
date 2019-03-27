@@ -414,7 +414,7 @@
     },
     {
     	"q": "The Character Master Hands is in which game?",
-    	"a": ["Smash Brothers", "Super Smash Brothers", "SSB"]
+    	"a": ["Smash Brothers", "Super Smash Brothers", "SSB", "Super Smash Bros"]
     },
     {
     	"q": "Which PC game was delayed in the release because of a hidden picture of a developer’s ass?",
@@ -460,6 +460,18 @@
     {
       "q": "What is the name of the Protagonist in the game Life is Strange?",
       "a": ["Max", "Maxine", "Maxine Caulfield"]
+    },
+    {
+      "q": "In the game Papers Please, who is the guy who tries to cross the border multiple times unsuccessfully, even trying to draw a passport with a crayon?",
+      "a": ["Jorji", "Jorji Costava"]
+    },
+    {
+      "q": "What are the cats that follow you around and help you in the game Monster Hunter World called?",
+      "a": ["Palicoes", "Palico"]
+    },
+    {
+      "q": "In the VR Rhythm game Beat Saber, what are the two colors of the sabers?",
+      "a": ["Red and Blue", "Blue and red", "red blue", "blue red"]
     }
   ]
 }

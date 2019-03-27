@@ -1,6 +1,7 @@
 from auth import jwt_token, access_token, token, api_token, client_id
 from twitchio.ext import commands
 
+from apscheduler.jobstores.base import JobLookupError
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 sched = AsyncIOScheduler()
 sched.start()
@@ -183,8 +184,8 @@ class Botto(commands.Bot):
                 return
 
             post = self.post_trivia
-            self.triviajob.remove()
-            self.triviajob = sched.add_job(post, 'interval', [message], seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], replace_existing=True)
+            sched.remove_job(message.channel.name)
+            sched.add_job(post, 'interval', [message], seconds=dt['seconds'], minutes=dt['minutes'], hours=dt['hours'], id=message.channel.name, replace_existing=True)
             now = datetime.now(_datetime.timezone(timedelta(hours=11)))
             dt = now + relativedelta(**dt)
             await message.channel.send(f"Success! Trivia will run next at {dt.strftime('%X %Z')}")
@@ -192,15 +193,18 @@ class Botto(commands.Bot):
     @commands.command(aliases=['triviaon'])
     async def triviaon_command(self, message):
         if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
-            await message.channel.send("Trivia on!")
+            sched.add_job(lambda: self.post_trivia(message), 'interval', minutes=5, id=message.channel.name, replace_existing=True)
             await self.post_trivia(message)
-            self.triviajob = sched.add_job(lambda: self.post_trivia(message), 'interval', minutes=5, replace_existing=True)
+            await message.channel.send("Trivia on!")
 
     @commands.command(aliases=['triviaoff'])
     async def triviaoff_command(self, message):
         if message.message.tags['mod'] == 1 or any(message.author.name in s for s in channels):
-            self.triviajob.remove()
-            await message.channel.send("Trivia off!")
+            try:
+                sched.remove_job(message.channel.name)
+                await message.channel.send("Trivia off!")
+            except JobLookupError:
+                await message.channel.send("Trivia is already off.")
 
     @commands.command(aliases=['trivialeaderboard'])
     async def trivialeaderboard_command(self, message):

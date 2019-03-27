@@ -322,7 +322,7 @@
     },
     {
         "q": "What was Frank West's job in 'Dead Rising'?",
-        "a": ["Photojournalist", "Photo journalist"]
+        "a": ["Photojournalist", "Photo journalist", "Journalist"]
     },
     {
         "q": "In the videogame Bully, what is the protagonist's last name?",
@@ -346,7 +346,7 @@
     },
     {
         "q": "What was the first game ever released that ran on the Source engine?",
-        "a": ["Counter-Strike: Source", "Counter Strike Source", "Counter Strike: Source"]
+        "a": ["Counter-Strike: Source", "Counter Strike Source", "Counter Strike: Source", "CS Source"]
     },
     {
         "q": "Which water-type Pokémon starter was introduced in the 4th generation of the series?",
@@ -436,6 +436,10 @@
     {
     	"q": "Which year was Fallout 3 released?",
     	"a": ["2008"]
+    },
+    {
+      "q": "In Castlevania III: Dracula's Curse NES, Who was the first character available to join your party?",
+      "a": ["Grant DaNasty", "Grant", "DaNasty"]
     }
   ]
 }

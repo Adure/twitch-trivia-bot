@@ -436,6 +436,30 @@
     {
       "q": "In Castlevania III: Dracula's Curse NES, Who was the first character available to join your party?",
       "a": ["Grant DaNasty", "Grant", "DaNasty"]
+    },
+    {
+      "q": "What is Arikadou's favourite sport?",
+      "a": ["Soccer", "Football"]
+    },
+    {
+      "q": "What is the infection you try and cure in the game Subnautica called?",
+      "a": ["Kharaa"]
+    },
+    {
+      "q": "What IRL City is Los Santos in the game GTA V modeled after?",
+      "a": ["Los Angeles", "LA"]
+    },
+    {
+      "q": "What planet do you crash land on in Subnautica?",
+      "a": ["4546B"]
+    },
+    {
+      "q": "Where do you rest in the Dark Souls games to fill your health/save the game?",
+      "a": ["Bonfire", "a bonfire"]
+    },
+    {
+      "q": "What is the name of the Protagonist in the game Life is Strange?",
+      "a": ["Max", "Maxine", "Maxine Caulfield"]
     }
   ]
 }

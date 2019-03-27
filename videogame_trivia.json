@@ -471,7 +471,11 @@
     },
     {
       "q": "In the VR Rhythm game Beat Saber, what are the two colors of the sabers?",
-      "a": ["Red and Blue", "Blue and red", "red blue", "blue red"]
+      "a": ["Red and Blue", "Blue and red", "Red Blue", "Blue Red"]
+    },
+    {
+      "q": "How much does the AK47 Cost in the game Counter Strike: Global offensive?",
+      "a": ["2700", "$2700", "2,700", "$2,700"]
     }
   ]
 }

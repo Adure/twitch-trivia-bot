@@ -202,6 +202,10 @@ class Botto(commands.Bot):
             self.triviajob.remove()
             await message.channel.send("Trivia off!")
 
+    @commands.command(aliases=['trivialeaderboard'])
+    async def trivialeaderboard_command(self, message):
+        await message.channel.send("View the trivia leaderboard here: https://adure.me/trivia")
+
     async def event_error(self, error, data):
         logger.error(f"{error} - {ctx.channel.name}")
 

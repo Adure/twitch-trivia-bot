@@ -27,7 +27,7 @@ r = requests.get('https://api.twitch.tv/kraken/channel', headers =
     'Client-ID': client_id,
     'Authorization':access_token
 })
-channel_id = r.json()['_id']
+channel_id = r.json()
 
 with open('./channels.json', 'r+') as channels_file:
 	channels = json.load(channels_file)
@@ -206,9 +206,9 @@ class Botto(commands.Bot):
             except JobLookupError:
                 await message.channel.send("Trivia is already off.")
 
-    @commands.command(aliases=['trivialeaderboard'])
+    @commands.command(aliases=['trivialb'])
     async def trivialeaderboard_command(self, message):
-        await message.channel.send("View the trivia leaderboard here: https://adure.me/trivia")
+        await message.channel.send("View the trivia leaderboard here: https://trivia.adure.me/leaderboard")
 
     async def event_error(self, error, data):
         logger.error(f"{error} - {ctx.channel.name}")
